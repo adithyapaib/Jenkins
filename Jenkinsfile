@@ -10,7 +10,9 @@ pipeline {
 
     stage('Build') {
       steps {
-        sh 'docker build -t adithyapaib:nodeapp:latest .'
+        sh 'ls -l'
+        sh '''
+docker build .'''
       }
     }
 
