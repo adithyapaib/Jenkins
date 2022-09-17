@@ -11,7 +11,7 @@ pipeline {
     stage('Build') {
       steps {
         sh 'ls -l'
-        sh 'docker build .'
+        sh 'docker build -t adithyapaib/nodeapp:latest .'
       }
     }
 
