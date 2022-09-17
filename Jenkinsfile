@@ -4,6 +4,7 @@ pipeline {
     stage('CheckOut Code') {
       steps {
         git(url: 'https://github.com/adithyapaib/Jenkins', branch: 'master')
+        sh 'ls -l '
       }
     }
 
