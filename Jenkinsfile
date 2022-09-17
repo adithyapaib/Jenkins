@@ -7,9 +7,9 @@ pipeline {
       }
     }
 
-    stage('log') {
+    stage('Build') {
       steps {
-        sh 'ls -ls'
+        sh 'docker build .'
       }
     }
 
