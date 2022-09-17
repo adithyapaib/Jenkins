@@ -9,7 +9,25 @@ pipeline {
 
     stage('Build') {
       steps {
-        sh 'docker build .'
+        sh 'docker build -t adithyapaib:nodeapp:latest .'
+      }
+    }
+
+    stage('Login To DockerHub') {
+      agent {
+        node {
+          label 'dockerhub'
+        }
+
+      }
+      steps {
+        sh 'docker login -u $DOCKERHUB_USER -p $DOCKERHUB_PASSWORD'
+      }
+    }
+
+    stage('Push To DockerHub') {
+      steps {
+        sh 'docker push adithyapaib/nodeapp:latest'
       }
     }
 
