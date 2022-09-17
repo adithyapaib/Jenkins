@@ -12,7 +12,7 @@ pipeline {
       steps {
         sh 'ls -l'
         sh '''
-docker build .'''
+sudo docker build .'''
       }
     }
 
@@ -24,13 +24,13 @@ docker build .'''
 
       }
       steps {
-        sh 'docker login -u $DOCKERHUB_USER -p $DOCKERHUB_PASSWORD'
+        sh 'sudo docker login -u $DOCKERHUB_USER -p $DOCKERHUB_PASSWORD'
       }
     }
 
     stage('Push To DockerHub') {
       steps {
-        sh 'docker push adithyapaib/nodeapp:latest'
+        sh 'sudo docker push adithyapaib/nodeapp:latest'
       }
     }
 
